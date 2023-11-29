@@ -7,7 +7,4 @@ def uppercase(str):
             new_str += uppercase_ch
         else:
             new_str += ch
-    print(new_str)
-
-uppercase("best")
-uppercase("Best School 98 Battery street")
+    print('{}'.format(new_str))
