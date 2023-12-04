@@ -6,14 +6,16 @@
  * Return: length of a list
  */
 
-int size(listint_t *node)
+int size(const listint_t *node)
 {
 	int counter = 0;
+	const listint_t *temp;
 
-	while (node)
+	temp = node;
+	while (temp)
 	{
-		node = node->next;
 		counter++;
+		temp = temp->next;
 	}
 	return (counter);
 }
@@ -31,6 +33,7 @@ int is_palindrome(listint_t **head)
 	int arr[2000] = {0};
 
 	len = size(*head);
+
 	if (!*head)
 		return (flag);
 
