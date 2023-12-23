@@ -11,8 +11,8 @@ class Square:
         Args:
             size (int): size of the square
         """
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -33,6 +33,25 @@ class Square:
             raise ValueError('size must be >= 0')
         self.__size = value
 
+    @property
+    def position(self):
+        """
+        Getter method that return the position of the square
+
+        Return:
+            int: the position of the square
+        """
+        return self.__position
+    
+    @position.setter
+    def position(self, value):
+        """Setter method that set the size of the square"""
+        if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if not all(isinstance(val, int) and val >= 0 for val in value):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        self.__position = value
+
     def area(self):
         """
         Calculate the area of the square
@@ -48,20 +67,3 @@ class Square:
             print()
         for _ in range(self.__size):
             print('#' * self.__size)
-
-    @property
-    def position(self):
-        """
-        Getter method that return the position of the square
-
-        Return:
-            tuple: the position of the square
-        """
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        """Setter method that set the position of the square"""
-        if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        self.__position = value
