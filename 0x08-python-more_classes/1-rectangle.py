@@ -24,7 +24,7 @@ class Rectangle:
             int: the width of the rectangle
         """
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """Setter method that set the width of the rectangle"""
@@ -44,7 +44,7 @@ class Rectangle:
             int: the height of the rectangle
         """
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         """Setter method that set the height of the rectangle"""
