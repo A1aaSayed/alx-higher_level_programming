@@ -77,4 +77,4 @@ class Rectangle:
     def __str__(self):
         """Informal and nicely printable string representation of rectangle"""
         return '\n'.join(['#' * self.__width for _ in range(self.__height)]
-                        if self.__height != 0 and self.__width != 0 else '')
+                         if self.__height != 0 and self.__width != 0 else '')
