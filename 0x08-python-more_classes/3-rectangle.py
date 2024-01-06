@@ -75,6 +75,9 @@ class Rectangle:
                 else 2 * (self.__width + self.__height))
     
     def __str__(self):
+        """prints in stdout the square"""
+        if (self.__height == 0 or self.__width == 0):
+            return ''
         for _ in range(self.__height):
             for _ in range(self.__width):
                 print('#', end='')
