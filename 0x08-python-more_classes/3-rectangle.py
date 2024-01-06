@@ -73,8 +73,7 @@ class Rectangle:
         """
         return (0 if self.__width == 0 or self.__height == 0
                 else 2 * (self.__width + self.__height))
-    
+
     def __str__(self):
         """prints in stdout the square"""
-        return '\n'.join(['#' * self.__width for _ in range(self.__height)]) \
-        if self.__width != 0 and self.__height != 0 else ''
+        return '\n'.join(['#' * self.__width for _ in range(self.__height)]) if self.__width != 0 and self.__height != 0 else ''
