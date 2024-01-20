@@ -1,0 +1,53 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+1. Testing `area` Method:
+
+   Scenario 1: `area` Method Not Implemented
+
+   Test Case:
+   geometry = BaseGeometry()
+   try:
+       geometry.area()
+       # Expected: Raises an Exception with the message "area() is not implemented."
+   except Exception as e:
+       assert str(e) == "area() is not implemented"
+       print("Test Passed!")
+
+2. Testing `integer_validator` Method:
+
+   Scenario 2.1: Valid Integer Value
+
+   Test Case:
+   geometry = BaseGeometry()
+   try:
+       geometry.integer_validator("side_length", 5)
+       # Expected: No exception should be raised.
+       print("Test Passed!")
+   except Exception as e:
+       print(f"Test Failed! Unexpected Exception: {e}")
+
+   Scenario 2.2: Invalid Non-Integer Value
+
+   Test Case:
+   geometry = BaseGeometry()
+   try:
+       geometry.integer_validator("side_length", "not_an_integer")
+       # Expected: Raises a TypeError with the message "<name> must be an integer."
+   except TypeError as e:
+       assert str(e) == "side_length must be an integer"
+       print("Test Passed!")
+   except Exception as e:
+       print(f"Test Failed! Unexpected Exception: {e}")
+
+   Scenario 2.3: Invalid Non-Positive Integer Value
+
+   Test Case:
+   geometry = BaseGeometry()
+   try:
+       geometry.integer_validator("side_length", 0)
+       # Expected: Raises a ValueError with the message "<name> must be greater than 0."
+   except ValueError as e:
+       assert str(e) == "side_length must be greater than 0"
+       print("Test Passed!")
+   except Exception as e:
+       print(f"Test Failed! Unexpected Exception: {e}")
