@@ -1,53 +1,91 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-1. Testing `area` Method:
 
-   Scenario 1: `area` Method Not Implemented
+>>> bg = BaseGeometry(None)
+Traceback (most recent call last):
+TypeError: BaseGeometry() takes no arguments
 
-   Test Case:
-   geometry = BaseGeometry()
-   try:
-       geometry.area()
-       # Expected: Raises an Exception with the message "area() is not implemented."
-   except Exception as e:
-       assert str(e) == "area() is not implemented"
-       print("Test Passed!")
 
-2. Testing `integer_validator` Method:
+>>> bg = BaseGeometry()
 
-   Scenario 2.1: Valid Integer Value
 
-   Test Case:
-   geometry = BaseGeometry()
-   try:
-       geometry.integer_validator("side_length", 5)
-       # Expected: No exception should be raised.
-       print("Test Passed!")
-   except Exception as e:
-       print(f"Test Failed! Unexpected Exception: {e}")
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
 
-   Scenario 2.2: Invalid Non-Integer Value
 
-   Test Case:
-   geometry = BaseGeometry()
-   try:
-       geometry.integer_validator("side_length", "not_an_integer")
-       # Expected: Raises a TypeError with the message "<name> must be an integer."
-   except TypeError as e:
-       assert str(e) == "side_length must be an integer"
-       print("Test Passed!")
-   except Exception as e:
-       print(f"Test Failed! Unexpected Exception: {e}")
+>>> bg.area(1)
+Traceback (most recent call last):
+TypeError: area() takes 1 positional argument but 2 were given
 
-   Scenario 2.3: Invalid Non-Positive Integer Value
 
-   Test Case:
-   geometry = BaseGeometry()
-   try:
-       geometry.integer_validator("side_length", 0)
-       # Expected: Raises a ValueError with the message "<name> must be greater than 0."
-   except ValueError as e:
-       assert str(e) == "side_length must be greater than 0"
-       print("Test Passed!")
-   except Exception as e:
-       print(f"Test Failed! Unexpected Exception: {e}")
+>>> bg.integer_validator("my_int", 12)
+
+
+>>> bg.integer_validator("my_int", [1, 2, 3])
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", (1, 2, 3))
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", 'salma')
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", 1.5)
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", {'a': 1})
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", None)
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", {1, 2, 3})
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", True)
+Traceback (most recent call last):
+TypeError: my_int must be an integer
+
+
+>>> bg.integer_validator("my_int", -3)
+Traceback (most recent call last):
+ValueError: my_int must be greater than 0
+
+
+>>> bg.integer_validator("my_int", 0)
+Traceback (most recent call last):
+ValueError: my_int must be greater than 0
+
+
+>>> bg.integer_validator("my_int")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+>>> print(bg.integer_validator) # doctest: +ELLIPSIS
+<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
+
+
+>>> bg.integer_validator("my_int", 0, 1)
+Traceback (most recent call last):
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
