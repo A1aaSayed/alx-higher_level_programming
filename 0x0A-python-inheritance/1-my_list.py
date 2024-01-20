@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for MyList class"""
+"""Implement for MyList class"""
 
 
 class MyList(list):
