@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Implementation for MyList class"""
+"""Implement for MyList class"""
 
 
 class MyList(list):
