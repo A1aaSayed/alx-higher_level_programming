@@ -10,6 +10,7 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """class constructor"""
         super().__init__(id)
+
         self.width = width
         self.height = height
         self.x = x
@@ -36,21 +37,21 @@ class Rectangle(Base):
         self.__height = value
 
     @property
-    def __x(self):
-        """get the __x of the rectangle"""
+    def x(self):
+        """get the value of x"""
         return self.__x
 
-    @__x.setter
-    def __x(self, value):
-        """set the __x of the rectangle"""
+    @x.setter
+    def x(self, value):
+        """set the value of x"""
         self.__x = value
 
     @property
-    def __y(self):
-        """get the __y of the rectangle"""
+    def y(self):
+        """get the value of y"""
         return self.__y
 
-    @__y.setter
-    def __y(self, value):
-        """set the __y of the rectangle"""
+    @y.setter
+    def y(self, value):
+        """set the value of y"""
         self.__y = value
