@@ -88,3 +88,9 @@ class Rectangle(Base):
         """override str"""
         return f'[Rectangle] ({self.id}) {self.__x}/{self.__y} - '\
             f'{self.__width}/{self.__height}'
+
+    def update(self, *args):
+        """assigns an argument to each attribute"""
+        attribute_names = ['id', 'width', 'height', 'x', 'y']
+        for name, value in zip(attribute_names, args):
+            setattr(self, name, value)
