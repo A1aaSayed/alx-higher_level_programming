@@ -8,6 +8,7 @@ class Square(Rectangle):
     """Square Class"""
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
+        self.size = size
 
     @property
     def size(self):
@@ -19,3 +20,7 @@ class Square(Rectangle):
         """set the size of the square"""
         self.__width = value
         self.__height = value
+
+    def __str__(self):
+        """override str"""
+        return f'[Square] ({self.id}) {self.__x}/{self.__y} - {self.size}'
