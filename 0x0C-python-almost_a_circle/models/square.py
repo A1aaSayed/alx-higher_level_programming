@@ -24,3 +24,12 @@ class Square(Rectangle):
     def __str__(self):
         """override str"""
         return f'[Square] ({self.id}) {self.x}/{self.y} - {self.size}'
+
+    def update(self, *args, **kwargs):
+        """assigns an argument to each attribute"""
+        attribute_names = ['id', 'size', 'x', 'y']
+        for name, value in zip(attribute_names, args):
+            setattr(self, name, value)
+        else:
+            for key, val in kwargs.items():
+                setattr(self, key, val)
