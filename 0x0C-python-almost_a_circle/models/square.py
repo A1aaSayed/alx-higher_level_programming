@@ -15,7 +15,7 @@ class Square(Rectangle):
     def size(self):
         """get the size of the square"""
         return self.width
-    
+
     @size.setter
     def size(self, value):
         """set the size of the square"""
@@ -34,3 +34,12 @@ class Square(Rectangle):
         else:
             for key, val in kwargs.items():
                 setattr(self, key, val)
+
+    def to_dictionary(self):
+        """convert the square object to dictionary"""
+        dic = dict()
+        dic['id'] = self.id
+        dic['size'] = self.size
+        dic['x'] = self.x
+        dic['y'] = self.y
+        return (dic)
