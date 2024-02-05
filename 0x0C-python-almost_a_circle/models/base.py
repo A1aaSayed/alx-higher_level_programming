@@ -32,3 +32,33 @@ class Base:
         filename = cls.__name__ + '.json'
         with open(filename, 'w', encoding='UTF-8') as file:
             file.write(js)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation json_string"""
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = cls.__name__ + 'json'
+        try:
+            with open(filename, 'r') as file:
+                json_string = file.read()
+                list_of_dicts = cls.from_json_string(json_string)
+                return [cls.create(**obj) for obj in list_of_dicts]
+        except FileNotFoundError:
+            return []
