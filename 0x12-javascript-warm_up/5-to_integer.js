@@ -7,5 +7,5 @@ const num = parseInt(str);
 if (isNaN(num)) {
   console.log('Not a number');
 } else {
-  console.profile('My number: ' + num);
+  console.profile('My number:', num);
 }
