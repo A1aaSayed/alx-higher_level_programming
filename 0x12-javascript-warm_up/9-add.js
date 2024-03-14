@@ -7,6 +7,6 @@ const sum =  add(first, second);
 
 console.log(sum);
 
-function add(a, b) {
+function add (a, b) {
   return a + b;
 }
