@@ -13,5 +13,5 @@ if (isNaN(n) || argv.length === 2) {
     }
     console.log(str);
     n--;
-    }
+  }
 }
