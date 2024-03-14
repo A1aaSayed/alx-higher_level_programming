@@ -7,11 +7,7 @@ const n = parseInt(argv[2]);
 if (isNaN(n) || argv.length === 2) {
   console.log('Missing number of occurrences');
 } else {
-  while (n !== 0) {
-    if (n < 0) {
-      break;
+    for (let i = 0; i < n; i++) {
+      console.log(str);
     }
-    console.log(str);
-    n--;
-  }
 }
