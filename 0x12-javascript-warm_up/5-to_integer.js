@@ -2,7 +2,7 @@
 
 const { argv } = require('process');
 const str = argv[2];
-const num = parseInt(str);
+const num = Number(str);
 
 if (isNaN(num)) {
   console.log('Not a number');
