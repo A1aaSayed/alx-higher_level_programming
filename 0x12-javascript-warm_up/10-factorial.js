@@ -1,7 +1,8 @@
 #!/usr/bin/node
-function computeFactorial(num) {
-  if (num == 0 || isNaN(num))
+function computeFactorial (num) {
+  if (num == 0 || isNaN(num)) {
     return 1;
+  }
   return num * computeFactorial(num - 1);
 }
 
