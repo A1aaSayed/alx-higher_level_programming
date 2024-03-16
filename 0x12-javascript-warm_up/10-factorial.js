@@ -6,7 +6,7 @@ function computeFactorial(num) {
 }
 
 const input = process.argv[2];
-const number = parseInt(input);
-const factorial = computeFactorial(number);
+const number = parseInt (input);
+const factorial = computeFactorial (number);
 
 console.log(factorial);
