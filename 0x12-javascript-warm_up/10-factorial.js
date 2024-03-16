@@ -1,9 +1,11 @@
 #!/usr/bin/node
-function computeFactorial (num) {
-  if (num == 0 || isNaN(num)) {
+
+function factorial (num) {
+  if (isNaN(num) || num === 0) {
     return 1;
   }
-  return num * computeFactorial(num - 1);
+
+  return num * factorial(num - 1);
 }
 
-console.log(computeFactorial(process.argv[2]));
+console.log(factorial(process.argv[2]));
