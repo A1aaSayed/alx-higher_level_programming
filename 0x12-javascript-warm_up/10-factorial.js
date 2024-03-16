@@ -6,8 +6,4 @@ function computeFactorial (num) {
   return num * computeFactorial(num - 1);
 }
 
-const input = process.argv[2];
-const number = parseInt (input);
-const factorial = computeFactorial (number);
-
-console.log(factorial);
+console.log(computeFactorial(process.argv[2]));
