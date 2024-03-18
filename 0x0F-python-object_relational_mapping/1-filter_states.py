@@ -17,7 +17,9 @@ if __name__ == '__main__':
 
     cursor = conn.cursor()
 
-    cursor.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY id')
+    cursor.execute(
+        '''SELECT * FROM states WHERE name LIKE "N%" ORDER BY id'''
+    )
 
     states = cursor.fetchall()
 
