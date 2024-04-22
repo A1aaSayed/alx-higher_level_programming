@@ -4,7 +4,7 @@ const { argv } = require("process");
 
 const x = parseInt(argv[2]);
 
-if (isNaN(x) || argv[2] == 2) {
+if (isNaN(x) || argv.length === 2) {
   console.log('Missing number of occurrences');
 } else {
   for (let i = 0; i < x; i++) {
