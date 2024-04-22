@@ -1,7 +1,7 @@
 #!/usr/bin/node
-exports.callMeMoby = function (x, theFunction) {
+exports.callMeMoby = function callMeMoby (x, theFunction) {
     if (x > 0) {
-      theFunction();
+      theFunction ();
       callMeMoby (x - 1, theFunction);
     }
 };
