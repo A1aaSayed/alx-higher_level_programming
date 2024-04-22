@@ -1,4 +1,4 @@
 #!/usr/bin/node
-exports.addMeMaybe = function (number, theFunction) {
+exports.addMeMaybe = function addMeMaybe (number, theFunction) {
   theFunction (parseInt(number) + 1);
 };
