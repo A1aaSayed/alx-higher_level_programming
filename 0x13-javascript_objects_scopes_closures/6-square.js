@@ -6,11 +6,11 @@ class Square extends require('./5-square') {
   }
 
   charPrint (c) {
-    for (let i = 0; i < this.size; i++) {
+    for (let i = 0; i < this.height; i++) {
         if (c === undefined) {
-            console.log('X'.repeat(this.size));
+            console.log('X'.repeat(this.width));
         } else {
-            console.log(c.repeat(this.size))
+            console.log(c.repeat(this.width));
         }
     }
   }
