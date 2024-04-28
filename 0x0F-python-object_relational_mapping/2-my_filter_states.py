@@ -23,15 +23,15 @@ if __name__ == '__main__':
         sys.exit(1)
 
     cur = db.cursor()
-    
+
     cur.execute("SELECT * FROM states \
                 WHERE states.name LIKE BINARY '{}' \
                 ORDER BY states.id".format(sys.argv[4]))
 
-    states = cur.fetchall()
+    rows = cur.fetchall()
 
-    for state in states:
-        print(state)
+    for row in rows:
+        print(row)
 
     cur.close()
     db.close()
