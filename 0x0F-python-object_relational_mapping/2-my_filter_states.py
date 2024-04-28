@@ -28,10 +28,10 @@ if __name__ == '__main__':
                 WHERE states.name LIKE BINARY '{}' \
                 ORDER BY states.id".format(sys.argv[4]))
 
-    rows = cur.fetchall()
+    states = cur.fetchall()
 
-    for row in rows:
-        print(row)
+    for state in states:
+        print(state)
 
     cur.close()
     db.close()
