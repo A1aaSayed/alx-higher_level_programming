@@ -12,11 +12,15 @@ if __name__ == '__main__':
     password = sys.argv[2]
     database = sys.argv[3]
 
-    db = MySQLdb.connect(
+    try:
+        db = MySQLdb.connect(
             host='localhost', port=3306,
             user=username, passwd=password,
             db=database
         )
+    except MySQLdb.Error as e:
+        print(f'Error Connecting to Database {e}')
+        sys.exit(1)
 
     cur = db.cursor()
 
