@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """
-script that takes in an argument and displays all values in the
-states table of hbtn_0e_0_usa where name matches the argument.
+script that lists all states with a name starting
+with N (upper N) from the database hbtn_0e_0_usa
 """
 
-import MYSQLdb
+
+import MySQLdb
+
 import sys
 
 if __name__ == '__main__':
@@ -12,19 +14,25 @@ if __name__ == '__main__':
     password = sys.argv[2]
     database = sys.argv[3]
 
-    db = MySQLdb.connect(
-        host='localhost', port=3306,
-        user=username, passwd=password,
-        db=database
+    try:
+        db = MySQLdb.connect(
+            host='localhost', port=3306,
+            user=username, passwd=password,
+            db=database
         )
+    except MySQLdb.Error as e:
+        print(f'Error Connecting to Database {e}')
+        sys.exit(1)
+    
 
     cur = db.cursor()
-    cur.execute(f'SELECT * FROM states WHERE name LIKE BINARY "{sys.argv[4]}" \
-                 ORDER BY states.id ASC')
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' \
+                 ORDER BY states.id ASC".format(sys.argv[4]))
 
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    
+    states = cur.fetchall()
+
+    for state in states:
+        print(state)
+
     cur.close()
     db.close()
