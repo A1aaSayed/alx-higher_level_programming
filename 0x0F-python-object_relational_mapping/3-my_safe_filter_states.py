@@ -1,30 +1,37 @@
 #!/usr/bin/python3
-"""script that takes in an argument and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument"""
+"""
+script that lists all states with a name starting
+with N (upper N) from the database hbtn_0e_0_usa
+"""
 
 import MySQLdb
 import sys
 
 if __name__ == '__main__':
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-    db = MySQLdb.connect(
-        host='localhost', user=username,
-        passwd=password, db=database, port=3306
-    )
+    try:
+        db = MySQLdb.connect(
+            host='localhost', port=3306,
+            user=username, passwd=password,
+            db=database
+        )
+    except MySQLdb.Error as e:
+        print(f'Error Connecting to Database {e}')
+        sys.exit(1)
 
     cur = db.cursor()
 
-    query = """SELECT * FROM states
-                WHERE states.name LIKE BINARY '{}'
-                ORDER BY states.id
-            """.format(sys.argv[4])
-    cur.execute(query)
+    name = sys.argv[4]
 
-    rows = cur.fetchall()
+    cur.execute("SELECT * FROM states WHERE name=%s", (name,))
 
-    for row in rows:
-        print(row)
+    states = cur.fetchall()
+
+    for state in states:
+        print(state)
 
     cur.close()
     db.close()
