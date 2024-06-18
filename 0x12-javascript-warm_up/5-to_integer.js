@@ -1,4 +1,4 @@
-// #!/usr/bin/node
+#!/usr/bin/node
 
 const { argv } = require('process');
 const str = argv[2];
