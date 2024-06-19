@@ -1,11 +1,6 @@
 #!/usr/bin/node
-
-const { argv } = require('process');
-const str = argv[2];
-const num = parseInt(str);
-
-if (isNaN(num)) {
-  console.log('Not a number');
-} else {
-  console.log('My number: ' + Math.floor(num));
-}
+console.log(
+  isNaN(parseInt(process.argv[2]))
+    ? 'Not a number'
+    : `My number: ${process.argv[2]}`
+);
